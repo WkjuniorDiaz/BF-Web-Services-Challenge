@@ -30,7 +30,7 @@ To run the project we need to use the following steps:
 ## Report
 To visualize the report after the execution of the TestRunner we need to use the following steps:
 1. Under the project tree, on the package "test-output", search for the cucumberReports directory.
-2. Right click on the file AutomationReport.html
+2. Right click on the file WebServicesReport.html
 3. Select "Open in" 
 4. Select "Browser" choose the browser you prefer.
 
