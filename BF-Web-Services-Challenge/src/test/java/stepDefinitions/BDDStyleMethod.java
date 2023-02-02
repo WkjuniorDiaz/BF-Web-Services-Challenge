@@ -60,9 +60,23 @@ public class BDDStyleMethod {
 
         Response response;
 
+        Map<String,Object> categoryObject = new HashMap<String,Object>();
+        categoryObject.put("id",2);
+        categoryObject.put("name","cats");
+
         Map<String,Object> mainObject = new HashMap<String,Object>();
         mainObject.put("id",petId);
+        mainObject.put("category",categoryObject);
         mainObject.put("name",name);
+        mainObject.put("tags", Arrays.asList(new LinkedHashMap<String,Object>() {
+            {
+                put("id",2);
+            }
+            {
+                put("name","tag1");
+            }
+        }));
+        mainObject.put("status","available");
 
 
         response =

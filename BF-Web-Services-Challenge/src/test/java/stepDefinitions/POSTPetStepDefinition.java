@@ -3,9 +3,12 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+
+import java.io.File;
 
 public class POSTPetStepDefinition {
 
@@ -22,5 +25,10 @@ public class POSTPetStepDefinition {
         Integer actualResponseCode = response.then().extract().statusCode();
 
         Assert.assertEquals(statusCode,actualResponseCode);
+    }
+
+    @Then("validate POST schema of response")
+    public void validate_post_schema_of_response(){
+        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(new File("src/test/resources/postSchema.json")));
     }
 }
